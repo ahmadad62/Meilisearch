@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Enter your search query..." oninput="search()">
+    <button onclick="search()">Search</button>
+    <div id="searchResults"></div> <!-- Updated: Added id attribute -->
+
+    <script>
+        function search() {
+            const query = document.getElementById('searchInput').value;
+            
+            fetch(`http://localhost:3001/search/products?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Call function to display search results
+                    displaySearchResults(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function displaySearchResults(data) {
+            const searchResultsDiv = document.getElementById('searchResults');
+            searchResultsDiv.innerHTML = ''; // Clear previous search results
+            
+            // Check if data is not empty
+            if (data.hits.length > 0) {
+                // Loop through search results and display them
+                data.hits.forEach(hit => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.textContent = hit.name; // Adjust to match your data structure
+                    searchResultsDiv.appendChild(resultDiv);
+                });
+            } else {
+                // If no results found, display a message
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.textContent = 'No results found';
+                searchResultsDiv.appendChild(noResultsDiv);
+            }
+        }
+    </script>
+</body>
+</html>

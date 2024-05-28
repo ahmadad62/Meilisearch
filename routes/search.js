@@ -16,8 +16,6 @@ module.exports = (client) => {
   router.get("/products", async (req, res) => {
     try {
       const { q } = req.query;
-      console.log(q);
-      
       const index = client.index("products");
       const searchResult = await index.search(q);
       res.status(200).send(searchResult);

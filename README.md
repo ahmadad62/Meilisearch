@@ -1,6 +1,6 @@
 # Full-Stack Application with MeiliSearch Integration
 
-This is a full-stack application that integrates with MeiliSearch for efficient searching of data stored in a MySQL database. The application allows users to search for products stored in the database and retrieve relevant search results in real-time.
+This full-stack application integrates with MeiliSearch to efficiently search data stored in a MySQL database. The application allows users to search for products stored in the database and retrieve relevant search results in real-time.
 
 ![Demo](demo.gif)
 ## Features
@@ -81,7 +81,7 @@ This is a full-stack application that integrates with MeiliSearch for efficient 
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, bug fixes, or feature enhancements, feel free to open an issue or create a pull request.
+Contributions are welcome! Feel free to open an issue or create a pull request if you have any suggestions, bug fixes, or feature enhancements.
 
 ## License
 
